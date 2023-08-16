@@ -21,8 +21,10 @@
 
     <junit.version>5.10.0</junit.version>
     <commons.version>2.9.0</commons.version>
+    <commons-beanutils.version>1.9.4</commons-beanutils.version>
     <truth.version>1.1.5</truth.version>
-
+    <retrofit2.version>2.9.0</retrofit2.version>
+    <okhttp3.version>3.14.9</okhttp3.version>
   </properties>
 
   <dependencies>
@@ -31,7 +33,27 @@
       <artifactId>commons-configuration2</artifactId>
       <version>${commons.version}</version>
     </dependency>
+    <dependency>
+      <groupId>commons-beanutils</groupId>
+      <artifactId>commons-beanutils</artifactId>
+      <version>${commons-beanutils.version}</version>
+    </dependency>
 
+    <dependency>
+      <groupId>com.squareup.retrofit2</groupId>
+      <artifactId>retrofit</artifactId>
+      <version>${retrofit2.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.squareup.retrofit2</groupId>
+      <artifactId>converter-scalars</artifactId>
+      <version>${retrofit2.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.squareup.okhttp3</groupId>
+      <artifactId>logging-interceptor</artifactId>
+      <version>${okhttp3.version}</version>
+    </dependency>
 
     <dependency>
       <groupId>org.junit.jupiter</groupId>
