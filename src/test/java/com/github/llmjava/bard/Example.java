@@ -7,6 +7,9 @@ public class Example {
     public static void main(String[] args) throws ConfigurationException {
         BardConfig config = BardConfig.fromProperties("bard4j.properties");
         BardClient client = new BardClient.Builder().withConfig(config).build();
-        System.out.println(client.getSNlM0e());
+
+        String input = "provide a calcite example of how to get the logical plan for postgres query";
+
+        System.out.println(client.generate(input));
     }
 }

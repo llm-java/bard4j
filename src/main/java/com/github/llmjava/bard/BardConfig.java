@@ -17,6 +17,8 @@ public class BardConfig {
      */
     public static final String API_KEY = "bard.apiKey";
 
+    public static final String SNLM0E = "bard.snlm0e";
+
     /**
      * ALLOWED_LANGUAGES: "en", "ko", "ja", "english", "korean", "japanese"
      */
@@ -37,6 +39,9 @@ public class BardConfig {
 
     public String getApiKey() {
         return config.getString(API_KEY);
+    }
+    public String getSNlM0e() {
+        return config.getString(SNLM0E);
     }
 
     public Duration getTimeout() {
