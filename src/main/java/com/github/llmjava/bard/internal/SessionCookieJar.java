@@ -16,7 +16,7 @@ public class SessionCookieJar implements CookieJar {
 
     @Override
     public void saveFromResponse(HttpUrl httpUrl, List<Cookie> list) {
-        System.out.println("Received");
+        System.out.println("saveFromResponse: " + httpUrl);
         for(Cookie cookie: list) {
             System.out.println(cookie);
         }
@@ -24,6 +24,7 @@ public class SessionCookieJar implements CookieJar {
 
     @Override
     public List<Cookie> loadForRequest(HttpUrl httpUrl) {
+        System.out.println("loadForRequest: " + httpUrl);
         return cookies;
     }
 
@@ -36,7 +37,7 @@ public class SessionCookieJar implements CookieJar {
         }
 
         public Builder add(String name, String value) {
-            return add(new Cookie.Builder().name(name).value(value).domain("bard.google.com").build());
+            return add(new Cookie.Builder().name(name).value(value).domain("google.com").build());
         }
 
         public SessionCookieJar build() {

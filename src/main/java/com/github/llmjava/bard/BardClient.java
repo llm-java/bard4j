@@ -1,6 +1,6 @@
 package com.github.llmjava.bard;
 
-import retrofit2.Call;
+import com.github.llmjava.bard.internal.ResponseParser;
 import retrofit2.Response;
 
 import java.io.IOException;
@@ -18,7 +18,8 @@ public class BardClient {
         try {
             Response<String> response = api.getSNlM0e().execute();
             if (response.isSuccessful()) {
-                return response.body();
+                String body = response.body();
+                return ResponseParser.getSNlM0e(body);
             } else  {
                 throw newException(response);
             }
