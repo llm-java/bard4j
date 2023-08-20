@@ -1,10 +1,10 @@
 # Bard4j
-============
+
 [![build](https://github.com/llmjava/bard4j/actions/workflows/main.yml/badge.svg)](https://github.com/llmjava/bard4j/actions/workflows/main.yml) [![Jitpack](https://jitpack.io/v/llmjava/bard4j.svg)](https://jitpack.io/#llmjava/bard4j) [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 </b>
 
-A **Java** and **Retrofit2** based **Client Library** that you can use to interact with Google **Bard**. It can be used in Android or any Java and Kotlin Project.
+A **Java** and **Retrofit2** based **Client Library** that you can use to interact with **Google Bard**. It can be used in Android or any Java and Kotlin Project.
 
 ## Add Dependency
 
@@ -61,7 +61,7 @@ Create a configuration file
 bard.apiKey=${env:BARD_API_KEY}
 ```
 
-
+Create an instance of `BardClient` and submit text generation requests
 
 ```java
 import com.github.llmjava.bard.*;
@@ -71,7 +71,7 @@ public class Main {
        BardConfig config = BardConfig.fromProperties("bard4j.properties");
        BardClient client = new BardClient.Builder().withConfig(config).build();
 
-       String input = "tell a joke";
+       String input = "tell me a joke";
 
        System.out.println(client.generate(input));
    }
