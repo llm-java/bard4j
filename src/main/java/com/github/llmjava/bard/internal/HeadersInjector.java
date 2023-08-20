@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class HeadersInterceptor implements Interceptor {
+public class HeadersInjector implements Interceptor {
 
     private static final Map<String, String> SESSION_HEADERS = new HashMap<String, String>(){{
         put("Host", "bard.google.com");

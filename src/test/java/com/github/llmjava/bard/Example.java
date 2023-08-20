@@ -8,8 +8,7 @@ public class Example {
         BardConfig config = BardConfig.fromProperties("bard4j.properties");
         BardClient client = new BardClient.Builder().withConfig(config).build();
 
-        String input = "provide a calcite example of how to get the logical plan for postgres query";
-
-        System.out.println(client.generate(input));
+        String input = "Who played l'inspecteur tahar?";
+        System.out.println("Answer: " + client.generate(input).split("\n")[3]);
     }
 }

@@ -1,7 +1,7 @@
 package com.github.llmjava.bard;
 
 import com.github.llmjava.bard.internal.ResponseParser;
-import com.github.llmjava.bard.internal.GenerationRequest;
+import com.github.llmjava.bard.request.GenerationRequest;
 import retrofit2.Response;
 
 import java.io.IOException;
@@ -21,9 +21,13 @@ public class BardClient {
 
     public String generate(String text) {
         try {
-            GenerationRequest request = new GenerationRequest(session);
+            GenerationRequest request = new GenerationRequest.Builder()
+                    .withSession(session)
+                    .withSNLM0e(getSNlM0e())
+                    .withText(text)
+                    .build();
             Map<String, String> params = request.getParams();
-            Map<String, String> data = request.getFormData(text, getSNlM0e());
+            Map<String, String> data = request.getFormData();
             Response<String> response = api.generate(params, data).execute();
             if (response.isSuccessful()) {
                 return response.body();
@@ -51,8 +55,12 @@ public class BardClient {
 
     public String getSNlM0e() {
         if(this.session.snlm0e == null) {
+            this.session.snlm0e = config.getSNlM0e();
+        }
+        if(this.session.snlm0e == null) {
             this.session.snlm0e = requestSNlM0e();
         }
+        System.out.println("snlm0e: " + session.snlm0e);
         return this.session.snlm0e;
     }
 

@@ -1,6 +1,6 @@
 package com.github.llmjava.bard;
 
-import java.util.UUID;
+import java.util.Random;
 
 public class BardSession {
 
@@ -9,11 +9,16 @@ public class BardSession {
     }
 
     public String snlm0e;
-    public String conversation_id;
-    public String response_id;
-    public String choice_id;
+    public String conversation_id = "";
+    public String response_id = "";
+    public String choice_id = "";
 
-    public String getReqId() {
-        return UUID.randomUUID().toString();
+    static Random generator = new Random();
+
+    private Long _reqId = 0L;
+
+    public String nextReqId() {
+        _reqId += generator.nextInt(10000);
+        return String.valueOf(_reqId);
     }
 }

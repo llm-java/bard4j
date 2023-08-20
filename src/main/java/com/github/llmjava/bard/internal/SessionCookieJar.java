@@ -4,11 +4,10 @@ import okhttp3.Cookie;
 import okhttp3.CookieJar;
 import okhttp3.HttpUrl;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class SessionCookieJar implements CookieJar {
-    private final List<Cookie> cookies;
+    private final Set<Cookie> cookies;
 
     SessionCookieJar(Builder builder) {
         this.cookies = builder.cookies;
@@ -16,20 +15,16 @@ public class SessionCookieJar implements CookieJar {
 
     @Override
     public void saveFromResponse(HttpUrl httpUrl, List<Cookie> list) {
-        System.out.println("saveFromResponse: " + httpUrl);
-        for(Cookie cookie: list) {
-            System.out.println(cookie);
-        }
+        cookies.addAll(list);
     }
 
     @Override
     public List<Cookie> loadForRequest(HttpUrl httpUrl) {
-        System.out.println("loadForRequest: " + httpUrl);
-        return cookies;
+        return new ArrayList<>(cookies);
     }
 
     public static class Builder {
-        private List<Cookie> cookies = new ArrayList<>();
+        private Set<Cookie> cookies = new HashSet<>();
 
         public Builder add(Cookie cookie) {
             cookies.add(cookie);

@@ -10,7 +10,7 @@ import java.util.Set;
 
 public class BardConfig {
 
-    public static final String BASE_URL = "https://bard.google.com/";
+    public static final String BASE_URL = "https://bard.google.com";
 
     /**
      *  Get __Secure-1PSID from your browser cookies
@@ -29,7 +29,7 @@ public class BardConfig {
 
     public static final String TIMEOUT = "timeout";
 
-    public static final Long DEFAULT_TIMEOUT_MILLIS = 10*1000l;
+    public static final Long DEFAULT_TIMEOUT_MILLIS = 60*1000l;
 
     private final Configuration config;
 
