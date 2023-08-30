@@ -7,6 +7,8 @@ public class Example {
     public static void main(String[] args) throws ConfigurationException {
         BardConfig config = BardConfig.fromProperties("bard4j.properties");
         BardClient client = new BardClient.Builder().withConfig(config).build();
-        System.out.println(client.getSNlM0e());
+
+        String input = "Who played l'inspecteur tahar?";
+        System.out.println("Answer: " + client.generate(input).split("\n")[3]);
     }
 }

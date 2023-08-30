@@ -10,12 +10,14 @@ import java.util.Set;
 
 public class BardConfig {
 
-    public static final String BASE_URL = "https://bard.google.com/";
+    public static final String BASE_URL = "https://bard.google.com";
 
     /**
      *  Get __Secure-1PSID from your browser cookies
      */
     public static final String API_KEY = "bard.apiKey";
+
+    public static final String SNLM0E = "bard.snlm0e";
 
     /**
      * ALLOWED_LANGUAGES: "en", "ko", "ja", "english", "korean", "japanese"
@@ -27,7 +29,7 @@ public class BardConfig {
 
     public static final String TIMEOUT = "timeout";
 
-    public static final Long DEFAULT_TIMEOUT_MILLIS = 10*1000l;
+    public static final Long DEFAULT_TIMEOUT_MILLIS = 60*1000l;
 
     private final Configuration config;
 
@@ -37,6 +39,9 @@ public class BardConfig {
 
     public String getApiKey() {
         return config.getString(API_KEY);
+    }
+    public String getSNlM0e() {
+        return config.getString(SNLM0E);
     }
 
     public Duration getTimeout() {
